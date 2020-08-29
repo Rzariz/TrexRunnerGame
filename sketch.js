@@ -36,10 +36,10 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(600, 200);
 
 
-  trex = createSprite(windowWidth -30, 180, 20, 50);
+  trex = createSprite(50, 180, 20, 50);
 
   trex.addAnimation("running", trex_running);
   trex.addAnimation("collided", trex_collided);
@@ -77,7 +77,7 @@ function setup() {
 
 function draw() {
 
-  background(180);
+  background('beige');
   //displaying score
   text("Score: " + score, 500, 50);
 
@@ -86,7 +86,6 @@ function draw() {
     //move the 
     gameOver.visible = false;
     restart.visible = false;
-    
     //change the trex animation
     //trex.changeAnimation("running", trex_running);
 
@@ -103,10 +102,9 @@ function draw() {
     }
 
     //jump when the space key is pressed
-    if (touches.length >0 || keyDown("space") && trex.y >= 100) {
+    if (keyDown("space") && trex.y >= 100) {
       trex.velocityY = -12;
       jumpSound.play();
-     // touches[]
     }
 
     //add gravity
